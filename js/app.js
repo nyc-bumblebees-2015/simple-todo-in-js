@@ -38,6 +38,7 @@ TodoApp.TodoList.prototype.assignTaskNumbers = function() {
 
 TodoApp.TodoList.prototype.addTask = function(task){
   this.tasks.push(task);
+  this.assignTaskNumbers();
 };
 
 TodoApp.TodoList.prototype.findTask = function(target){
