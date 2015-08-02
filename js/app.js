@@ -15,3 +15,22 @@ TodoApp.Task.prototype.markComplete = function() {
     this.completed_at = new Date();
   }
 };
+
+TodoApp.TodoList = function(tasks){
+  this.tasks = tasks;
+};
+
+TodoApp.TodoList.prototype.addTask = function(task){
+  this.tasks.push(tasks);
+};
+
+TodoApp.TodoList.prototype.findTask = function(target){
+  var arr = this.tasks.filter(function(element){
+    return element.id === target.id;
+  });
+
+  if (arr && arr.length > 0 ) {
+    return arr[0];
+  }
+
+};
