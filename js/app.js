@@ -17,7 +17,23 @@ TodoApp.Task.prototype.markComplete = function() {
 };
 
 TodoApp.TodoList = function(tasks){
+  tasks = tasks || [];
   this.tasks = tasks;
+};
+
+TodoApp.TodoList.prototype.assignTaskNumbers = function() {
+  var ids = this.tasks.map(function(ele){
+    return ele.id ? ele.id :0 ;
+  });
+  ids.push(0);
+
+  var max = Math.max.apply(null, ids);
+  this.tasks.forEach(function(task){
+    if(!task.id) {
+      task.id = max + 1;
+      max++;
+    }
+  });
 };
 
 TodoApp.TodoList.prototype.addTask = function(task){
