@@ -21,7 +21,7 @@ TodoApp.TodoList = function(tasks){
 };
 
 TodoApp.TodoList.prototype.addTask = function(task){
-  this.tasks.push(tasks);
+  this.tasks.push(task);
 };
 
 TodoApp.TodoList.prototype.findTask = function(target){
