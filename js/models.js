@@ -39,6 +39,7 @@ TodoApp.TodoList.prototype.assignTaskNumbers = function() {
 TodoApp.TodoList.prototype.addTask = function(task){
   this.tasks.push(task);
   this.assignTaskNumbers();
+  this.save();
 };
 
 TodoApp.TodoList.prototype.findTask = function(target){
@@ -49,5 +50,12 @@ TodoApp.TodoList.prototype.findTask = function(target){
   if (arr && arr.length > 0 ) {
     return arr[0];
   }
+};
 
+TodoApp.TodoList.prototype.save = function() {
+  localStorage.setItem('todo_list', JSON.stringify(this));
+};
+
+TodoApp.TodoList.load = function() {
+  return JSON.parse(localStorage.getItem('todo_list'));
 };
