@@ -42,9 +42,9 @@ TodoApp.TodoList.prototype.addTask = function(task){
   this.save();
 };
 
-TodoApp.TodoList.prototype.findTask = function(target){
+TodoApp.TodoList.prototype.findTask = function(targetId){
   var arr = this.tasks.filter(function(element){
-    return element.id === target.id;
+    return element.id == targetId;
   });
 
   if (arr && arr.length > 0 ) {
