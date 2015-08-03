@@ -2,7 +2,9 @@ TodoApp.Controller = function(view) {
   var stored = TodoApp.TodoList.load();
   this.list = new TodoApp.TodoList();
   if (stored) {
-    this.list.tasks = stored.tasks;
+    stored.tasks.forEach(function(ele) {
+      this.list.tasks.push(new TodoApp.Task(ele));
+    }.bind(this));
   }
   this.view = view;
   view.showTasks(this.list);
