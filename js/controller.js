@@ -10,6 +10,19 @@ TodoApp.Controller = function(view) {
   view.showTasks(this.list);
 }
 
+TodoApp.Controller.prototype.completeTask = function(taskId) {
+  var task = this.list.findTask(taskId);
+  if(task) {
+    task.markComplete();
+    this.list.save();
+    this.view.showTasks(this.list);
+  } else {
+    alert('Odd. Cannot find the task with id ' + taskId);
+  }
+
+}
+
+
 TodoApp.Controller.prototype.addTask = function(taskProps) {
   this.list.addTask(new TodoApp.Task(taskProps));
   this.view.showTasks(this.list);
